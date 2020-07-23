@@ -127,7 +127,7 @@ public class NumberGuessTest {
         NumberGuess numberGuess = new NumberGuess();
 
         //when
-        String result = numberGuess.isInputValid("1 2 3 4 5");
+        numberGuess.isInputValid("1 2 3 4 5");
 
 
         //then
@@ -141,7 +141,7 @@ public class NumberGuessTest {
         NumberGuess numberGuess = new NumberGuess();
 
         //when
-        String result = numberGuess.isInputValid("1 1 4 5");
+        numberGuess.isInputValid("1 1 4 5");
 
         //then
         assertEquals("Wrong Input,Input again",systemOut());
@@ -154,7 +154,7 @@ public class NumberGuessTest {
         NumberGuess numberGuess = new NumberGuess();
 
         //when
-        String result = numberGuess.isInputValid("90 1 4 5");
+        numberGuess.isInputValid("90 1 4 5");
 
         //then
         assertEquals("Wrong Input,Input again",systemOut());
@@ -167,7 +167,7 @@ public class NumberGuessTest {
         NumberGuess numberGuess = new NumberGuess();
 
         //when
-        String result = numberGuess.isInputValid("a 1 4 5");
+        numberGuess.isInputValid("a 1 4 5");
 
         //then
         assertEquals("Wrong Input,Input again",systemOut());

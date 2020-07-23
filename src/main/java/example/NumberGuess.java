@@ -17,6 +17,10 @@ public class NumberGuess {
         return time;
     }
 
+    public String guess(int[] guessInput){
+        return this.guess(guessInput,this.answer);
+    }
+
     public String guess(int[] guessInput, int[] answer) {
         int isCorrectPosition = 0;
         int isCorrectNumber = 0;
@@ -40,41 +44,53 @@ public class NumberGuess {
         }
     }
 
-    public boolean isInputValid() {
+    public void guessStart(){
         Scanner sc = new Scanner(System.in);
-
         String str = sc.nextLine();
-        String[] arr = str.split(" ");
-        int arrInt[] = new int[arr.length];
-        return false;
+        int[] intArr = new int[4];
+        for(;time>0;time--){
+            if(isInputValid(str)){
+                String[] strArr = str.split(" ");
+                for(int i=0;i<4;i++){
+                    intArr[i]=Integer.parseInt(strArr[i]);
+                }
+                guessStart(intArr,this.answer);
+            }
+            if(guess(intArr, answer).equals("4A0B"))
+                break;
+        }
+
     }
 
-    public String isInputValid(String str) {
+
+    public boolean isInputValid(String str) {
         String[] strArr = str.split(" ");
         if(strArr.length!=4){
             System.out.print("Wrong Input,Input again");
-            return "Wrong Input,Input again";
+            return false;
         }
+        int[] returnArr = new int[4];
+        int index =0;
         int[] flag = {0,0,0,0,0,0,0,0,0,0,0};
         for (String s : strArr) {
             try {
                 Integer.parseInt(s);
             } catch (Exception e) {
                 System.out.print("Wrong Input,Input again");
-                return "Wrong Input，Input again";
+                return false;
             }
             if (Integer.parseInt(s) < 0 || Integer.parseInt(s) > 9) {
                 System.out.print("Wrong Input,Input again");
-                return "Wrong Input，Input again";
+                return false;
             }
             if(flag[Integer.parseInt(s)]!=1){
                 flag[Integer.parseInt(s)]=1;
             }else {
                 System.out.print("Wrong Input,Input again");
-                return "Wrong Input,Input again";
+                return false;
             }
-
+            returnArr[index] = Integer.parseInt(s);
         }
-        return "";
+        return true;
     }
 }
