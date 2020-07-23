@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+
 public class NumberGuessTest {
 
     @Test
@@ -107,5 +108,17 @@ public class NumberGuessTest {
         //then
         assertEquals(5, numberGuess.getTime()-1);
 
+    }
+
+    @Test
+    void should_return_true_when_is_input_valid() {
+        //given
+        NumberGuess numberGuess = new NumberGuess();
+
+        //when
+        boolean result = numberGuess.isInputValid();
+
+        //then
+        assertEquals(true,result);
     }
 }

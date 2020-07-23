@@ -37,4 +37,8 @@ public class NumberGuess {
                 break;
         }
     }
+
+    public boolean isInputValid() {
+        return false;
+    }
 }
