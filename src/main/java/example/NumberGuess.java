@@ -55,7 +55,16 @@ public class NumberGuess {
             System.out.print("Wrong Input,Input again");
             return "Wrong Input,Input again";
         }
+        int[] flag = {0,0,0,0};
+        for (String s : strArr) {
+            if(flag[Integer.parseInt(s)]!=1){
+                flag[Integer.parseInt(s)]=1;
+            }else {
+                System.out.print("Wrong Input,Input again");
+                return "Wrong Input,Input again";
+            }
 
+        }
         return "";
     }
 }
