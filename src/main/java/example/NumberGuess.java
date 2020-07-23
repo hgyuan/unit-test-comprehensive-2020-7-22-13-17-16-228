@@ -52,7 +52,8 @@ public class NumberGuess {
     public String isInputValid(String str) {
         String[] strArr = str.split(" ");
         if(strArr.length!=4){
-            return "Wrong Input，Input again";
+            System.out.print("Wrong Input,Input again");
+            return "Wrong Input,Input again";
         }
 
         return "";

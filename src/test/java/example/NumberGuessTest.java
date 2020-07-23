@@ -3,14 +3,15 @@ package example;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class NumberGuessTest {
 
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
 
     private String systemOut() {
         return outContent.toString();
@@ -122,12 +123,14 @@ public class NumberGuessTest {
     @Test
     void should_return_true_when_is_input_valid_given_12345() {
         //given
+        System.setOut(new PrintStream(outContent));
         NumberGuess numberGuess = new NumberGuess();
 
         //when
         String result = numberGuess.isInputValid("1 2 3 4 5");
 
+
         //then
-        assertFalse(systemOut().endsWith("Wrong Input，Input again"));
+        assertEquals("Wrong Input,Input again",systemOut());
     }
 }
