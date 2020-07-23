@@ -2,10 +2,19 @@ package example;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 
 public class NumberGuessTest {
+
+    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    private String systemOut() {
+        return outContent.toString();
+    }
 
     @Test
     void should_return_4A0B_when_guess_given_guess_number_1234_answer_1234() {
@@ -111,14 +120,14 @@ public class NumberGuessTest {
     }
 
     @Test
-    void should_return_true_when_is_input_valid() {
+    void should_return_true_when_is_input_valid_given_12345() {
         //given
         NumberGuess numberGuess = new NumberGuess();
 
         //when
-        boolean result = numberGuess.isInputValid();
+        String result = numberGuess.isInputValid("1 2 3 4 5");
 
         //then
-        assertEquals(true,result);
+        assertFalse(systemOut().endsWith("Wrong Input，Input again"));
     }
 }
