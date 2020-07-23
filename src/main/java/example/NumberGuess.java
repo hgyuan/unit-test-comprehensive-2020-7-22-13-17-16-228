@@ -11,6 +11,8 @@ public class NumberGuess {
     public NumberGuess(){}
 
 
+
+
     public String guess(int[] guess,int[] answer) {
         int isCorrectPosition = 0;
         int isCorrectNumber = 0;
@@ -27,4 +29,7 @@ public class NumberGuess {
         return String.format("%sA%sB",isCorrectPosition,isCorrectNumber-isCorrectPosition);
     }
 
+    public int guessStart(int[] guess, int[] answer) {
+        return 0;
+    }
 }

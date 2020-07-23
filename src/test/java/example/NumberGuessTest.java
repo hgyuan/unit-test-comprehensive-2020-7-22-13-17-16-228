@@ -94,4 +94,17 @@ public class NumberGuessTest {
 
     }
 
+    @Test
+    void should_return_5_when_guess_start_when_first_is_correct() {
+        //given
+        NumberGuess numberGuess = new NumberGuess();
+        int[] guess = {1, 2, 3, 4};
+        int[] answer = {1, 2, 4, 3};
+
+        //when
+        int result = numberGuess.guessStart(guess,answer);
+
+        //then
+        assertEquals(5, result);
+    }
 }
