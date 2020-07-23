@@ -36,4 +36,18 @@ public class NumberGuessTest {
 
     }
 
+    @Test
+    void should_return_2A0B_when_guess_given_number_1234_answer_1256() {
+        //given
+        NumberGuess numberGuess = new NumberGuess();
+        int[] guess = {1, 2, 3, 4};
+        int[] answer = {1, 2, 5, 6};
+
+        //when
+        String result = numberGuess.guess(guess, answer);
+
+        //then
+        assertEquals("2A0B", result);
+
+    }
 }
