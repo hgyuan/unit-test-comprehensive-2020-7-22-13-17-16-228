@@ -148,13 +148,13 @@ public class NumberGuessTest {
     }
 
     @Test
-    void should_return_true_when_is_input_valid_given_11450() {
+    void should_return_true_when_is_input_valid_given_90_145() {
         //given
         System.setOut(new PrintStream(outContent));
         NumberGuess numberGuess = new NumberGuess();
 
         //when
-        String result = numberGuess.isInputValid("1 1 4 50");
+        String result = numberGuess.isInputValid("90 1 4 5");
 
         //then
         assertEquals("Wrong Input,Input again",systemOut());
