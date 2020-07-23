@@ -55,8 +55,12 @@ public class NumberGuess {
             System.out.print("Wrong Input,Input again");
             return "Wrong Input,Input again";
         }
-        int[] flag = {0,0,0,0};
+        int[] flag = {0,0,0,0,0,0,0,0,0,0,0};
         for (String s : strArr) {
+            if (Integer.parseInt(s) < 0 || Integer.parseInt(s) > 9) {
+                System.out.print("Wrong Input,Input again");
+                return "Wrong Input，Input again";
+            }
             if(flag[Integer.parseInt(s)]!=1){
                 flag[Integer.parseInt(s)]=1;
             }else {
