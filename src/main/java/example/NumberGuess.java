@@ -1,5 +1,7 @@
 package example;
 
+import java.util.Scanner;
+
 public class NumberGuess {
 
     private int[] answer;
@@ -39,6 +41,20 @@ public class NumberGuess {
     }
 
     public boolean isInputValid() {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+        String[] arr = str.split(" ");
+        int arrInt[] = new int[arr.length];
         return false;
+    }
+
+    public String isInputValid(String str) {
+        String[] strArr = str.split(" ");
+        if(strArr.length!=4){
+            return "Wrong Input，Input again";
+        }
+
+        return "";
     }
 }
