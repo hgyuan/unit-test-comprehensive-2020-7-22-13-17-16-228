@@ -2,11 +2,16 @@ package example;
 
 public class NumberGuess {
 
-    private AnswerBuilder answerBuilder;
     private int[] answer;
 
+    public NumberGuess(AnswerBuilder answerBuilder) {
+        answer = answerBuilder.createAnswer();
+    }
 
-    public String guess(int[] guess, int[] answer) {
+    public NumberGuess(){}
+
+
+    public String guess(int[] guess,int[] answer) {
         int isCorrectPosition = 0;
         int isCorrectNumber = 0;
         for(int index =0;index<guess.length;index++){
