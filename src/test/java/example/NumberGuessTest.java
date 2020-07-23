@@ -99,12 +99,13 @@ public class NumberGuessTest {
         //given
         NumberGuess numberGuess = new NumberGuess();
         int[] guess = {1, 2, 3, 4};
-        int[] answer = {1, 2, 4, 3};
+        int[] answer = {1, 2, 3, 4};
 
         //when
-        int result = numberGuess.guessStart(guess,answer);
+        numberGuess.guessStart(guess,answer);
 
         //then
-        assertEquals(5, result);
+        assertEquals(5, numberGuess.getTime()-1);
+
     }
 }

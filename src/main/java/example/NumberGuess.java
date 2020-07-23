@@ -3,6 +3,7 @@ package example;
 public class NumberGuess {
 
     private int[] answer;
+    private int time = 6;
 
     public NumberGuess(AnswerBuilder answerBuilder) {
         answer = answerBuilder.createAnswer();
@@ -10,18 +11,19 @@ public class NumberGuess {
 
     public NumberGuess(){}
 
+    public int getTime() {
+        return time;
+    }
 
-
-
-    public String guess(int[] guess,int[] answer) {
+    public String guess(int[] guessInput, int[] answer) {
         int isCorrectPosition = 0;
         int isCorrectNumber = 0;
-        for(int index =0;index<guess.length;index++){
+        for(int index =0;index<guessInput.length;index++){
             for(int answerIndex=0;answerIndex<answer.length;answerIndex++){
-                if(guess[index]==answer[index]&&index==answerIndex){
+                if(guessInput[index]==answer[index]&&index==answerIndex){
                     isCorrectPosition++;
                 }
-                if(guess[index]==answer[answerIndex]){
+                if(guessInput[index]==answer[answerIndex]){
                     isCorrectNumber++;
                 }
             }
@@ -29,7 +31,10 @@ public class NumberGuess {
         return String.format("%sA%sB",isCorrectPosition,isCorrectNumber-isCorrectPosition);
     }
 
-    public int guessStart(int[] guess, int[] answer) {
-        return 0;
+    public void guessStart(int[] guessInput, int[] answer) {
+        for(;time>0;time--){
+            if(guess(guessInput, answer).equals("4A0B"))
+                break;
+        }
     }
 }
