@@ -133,4 +133,18 @@ public class NumberGuessTest {
         //then
         assertEquals("Wrong Input,Input again",systemOut());
     }
+
+    @Test
+    void should_return_true_when_is_input_valid_given_1145() {
+        //given
+        System.setOut(new PrintStream(outContent));
+        NumberGuess numberGuess = new NumberGuess();
+
+        //when
+        String result = numberGuess.isInputValid("1 1 4 5");
+
+        //then
+        assertEquals("Wrong Input,Input again",systemOut());
+    }
+
 }
