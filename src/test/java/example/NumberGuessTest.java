@@ -79,4 +79,19 @@ public class NumberGuessTest {
         assertEquals("0A4B", result);
     }
 
+    @Test
+    void should_return_2A2B_when_guess_given_number_1234_answer_1243() {
+        //given
+        NumberGuess numberGuess = new NumberGuess();
+        int[] guess = {1, 2, 3, 4};
+        int[] answer = {1, 2, 4, 3};
+
+        //when
+        String result = numberGuess.guess(guess, answer);
+
+        //then
+        assertEquals("2A2B", result);
+
+    }
+
 }
