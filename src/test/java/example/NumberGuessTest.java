@@ -50,4 +50,19 @@ public class NumberGuessTest {
         assertEquals("2A0B", result);
 
     }
+
+    @Test
+    void should_return_0A2B_when_guess_given_number_7834_answer_3456() {
+        //given
+        NumberGuess numberGuess = new NumberGuess();
+        int[] guess = {7, 8, 3, 4};
+        int[] answer = {3, 4, 5, 6};
+
+        //when
+        String result = numberGuess.guess(guess, answer);
+
+        //then
+        assertEquals("2A0B", result);
+
+    }
 }
