@@ -2,6 +2,9 @@ package example;
 
 public class NumberGuess {
 
+    private AnswerBuilder answerBuilder;
+    private int[] answer;
+
 
     public String guess(int[] guess, int[] answer) {
         int isCorrectPosition = 0;
