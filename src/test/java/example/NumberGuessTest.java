@@ -62,7 +62,7 @@ public class NumberGuessTest {
         String result = numberGuess.guess(guess, answer);
 
         //then
-        assertEquals("2A0B", result);
-
+        assertEquals("0A2B", result);
     }
+
 }

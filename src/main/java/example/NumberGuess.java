@@ -4,16 +4,21 @@ public class NumberGuess {
 
 
     public String guess(int[] guess, int[] answer) {
-        int isCorrect = 0;
+        int isCorrectPosition = 0;
+        int isCorrectNumber = 0;
         for (int index = 0; index < guess.length; index++) {
             if (guess[index] == answer[index]) {
-                isCorrect++;
+                isCorrectPosition++;
             }
         }
-        if(isCorrect==0){
-            return "0A0B";
+        for(int index =0;index<guess.length;index++){
+            for(int answerIndex=0;answerIndex<answer.length;answerIndex++){
+                if(guess[index]==answer[answerIndex]){
+                    isCorrectNumber++;
+                }
+            }
         }
-        return String.format("%sA0B",isCorrect);
+        return String.format("%sA%sB",isCorrectPosition,isCorrectNumber-isCorrectPosition);
     }
 
 }
