@@ -46,19 +46,24 @@ public class NumberGuess {
     public void guessStart() {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
-        int[] intArr = new int[4];
         String[] strArr = str.split(" ");
         for (; time > 0; time--) {
             if (isInputValid(strArr)) {
-                for (int i = 0; i < 4; i++) {
-                    intArr[i] = Integer.parseInt(strArr[i]);
+                int[] intArr = parseToIntegerArray(strArr);
+                if (guess(intArr, answer).equals("4A0B")) {
+                    break;
                 }
-                guessStart(intArr, this.answer);
             }
-            if (guess(intArr, answer).equals("4A0B")) {
-                break;
-            }
+
         }
+    }
+
+    private int[] parseToIntegerArray(String[] strArr) {
+        int[] intArr = new int[4];
+        for (int i = 0; i < 4; i++) {
+            intArr[i] = Integer.parseInt(strArr[i]);
+        }
+        return intArr;
     }
 
 
