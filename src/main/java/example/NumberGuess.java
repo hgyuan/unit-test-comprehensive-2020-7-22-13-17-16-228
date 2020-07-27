@@ -13,56 +13,52 @@ public class NumberGuess {
         answer = answerBuilder.createAnswer();
     }
 
-    public NumberGuess(){}
+    public NumberGuess() {
+    }
 
     public int getTime() {
         return time;
     }
 
-    public String guess(int[] guessInput){
-        return this.guess(guessInput,this.answer);
-    }
-
-    public String guess(int[] guessInput , int[] answer) {
+    public String guess(int[] guessInput, int[] answer) {
         int CorrectPosition = 0;
         int CorrectNumber = 0;
-        for(int index =0;index<guessInput.length;index++){
-            for(int answerIndex=0;answerIndex<answer.length;answerIndex++){
-                if(guessInput[index]==answer[index]&&index==answerIndex){
+        for (int index = 0; index < guessInput.length; index++) {
+            for (int answerIndex = 0; answerIndex < answer.length; answerIndex++) {
+                if (guessInput[index] == answer[index] && index == answerIndex) {
                     CorrectPosition++;
                 }
-                if(guessInput[index]==answer[answerIndex]){
+                if (guessInput[index] == answer[answerIndex]) {
                     CorrectNumber++;
                 }
             }
         }
-        return String.format("%sA%sB",CorrectPosition,CorrectNumber-CorrectPosition);
+        return String.format("%sA%sB", CorrectPosition, CorrectNumber - CorrectPosition);
     }
 
     public void guessStart(int[] guessInput, int[] answer) {
-        for(;time>0;time--){
-            if(guess(guessInput, answer).equals("4A0B"))
+        for (; time > 0; time--) {
+            if (guess(guessInput, answer).equals("4A0B"))
                 break;
         }
     }
 
-    public void guessStart(){
+    public void guessStart() {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         int[] intArr = new int[4];
-        for(;time>0;time--){
-            if(isInputValid(str)){
+        for (; time > 0; time--) {
+            if (isInputValid(str)) {
                 String[] strArr = str.split(" ");
-                for(int i=0;i<4;i++){
-                    intArr[i]=Integer.parseInt(strArr[i]);
+                for (int i = 0; i < 4; i++) {
+                    intArr[i] = Integer.parseInt(strArr[i]);
                 }
-                guessStart(intArr,this.answer);
+                guessStart(intArr, this.answer);
             }
-            if(guess(intArr, answer).equals("4A0B")){
+            if (guess(intArr, answer).equals("4A0B")) {
                 break;
             }
         }
-
     }
 
 
