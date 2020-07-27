@@ -125,9 +125,10 @@ public class NumberGuessTest {
         //given
         System.setOut(new PrintStream(outContent));
         NumberGuess numberGuess = new NumberGuess();
+        String[] strs = "1 2 3 4 5".split(" ");
 
         //when
-        numberGuess.isInputValid("1 2 3 4 5");
+        numberGuess.isInputValid(strs);
 
 
         //then
@@ -139,9 +140,10 @@ public class NumberGuessTest {
         //given
         System.setOut(new PrintStream(outContent));
         NumberGuess numberGuess = new NumberGuess();
+        String[] strs = "1 1 4 5".split(" ");
 
         //when
-        numberGuess.isInputValid("1 1 4 5");
+        numberGuess.isInputValid(strs);
 
         //then
         assertEquals("Wrong Input,Input again",systemOut());
@@ -152,9 +154,10 @@ public class NumberGuessTest {
         //given
         System.setOut(new PrintStream(outContent));
         NumberGuess numberGuess = new NumberGuess();
+        String[] strs = "90 1 4 5".split(" ");
 
         //when
-        numberGuess.isInputValid("90 1 4 5");
+        numberGuess.isInputValid(strs);
 
         //then
         assertEquals("Wrong Input,Input again",systemOut());
@@ -165,9 +168,10 @@ public class NumberGuessTest {
         //given
         System.setOut(new PrintStream(outContent));
         NumberGuess numberGuess = new NumberGuess();
+        String[] strs = "a 1 4 5".split(" ");
 
         //when
-        numberGuess.isInputValid("a 1 4 5");
+        numberGuess.isInputValid(strs);
 
         //then
         assertEquals("Wrong Input,Input again",systemOut());
