@@ -67,7 +67,6 @@ public class NumberGuess {
         return intArr;
     }
 
-
     public boolean isInputValid(String[] strArr) {
         return isLengthValid(strArr) && isIntegerNumber(strArr)
                 && isNotContainSameNumber(strArr) && isInputBetween0To9(strArr);
