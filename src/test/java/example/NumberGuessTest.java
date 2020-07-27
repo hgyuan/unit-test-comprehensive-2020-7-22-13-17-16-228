@@ -1,11 +1,16 @@
 package example;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Scanner;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.booleanThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 
 public class NumberGuessTest {
@@ -177,4 +182,16 @@ public class NumberGuessTest {
         assertEquals("Wrong Input,Input again",systemOut());
     }
 
+    @Test
+    void should_return_true_when_guessStart_given_input_1234_answer_1234() {
+        //given
+        AnswerBuilder answerBuilder = Mockito.mock(AnswerBuilder.class);
+        when(answerBuilder.createAnswer()).thenReturn(new int[]{1, 2, 3, 4});
+        NumberGuess numberGuess = new NumberGuess(answerBuilder);
+        //when
+        boolean result = numberGuess.guessStart("1 2 3 4");
+
+        //then
+        assertTrue(result);
+    }
 }

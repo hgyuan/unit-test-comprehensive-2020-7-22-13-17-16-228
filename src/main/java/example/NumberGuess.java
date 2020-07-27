@@ -38,24 +38,25 @@ public class NumberGuess {
 
     public void guessStart(int[] guessInput, int[] answer) {
         for (; time > 0; time--) {
-            if (guess(guessInput, answer).equals("4A0B"))
+            if (guess(guessInput, answer).equals("4A0B")) {
                 break;
+            }
         }
     }
 
-    public void guessStart() {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        String[] strArr = str.split(" ");
-        for (; time > 0; time--) {
-            if (isInputValid(strArr)) {
-                int[] intArr = parseToIntegerArray(strArr);
-                if (guess(intArr, answer).equals("4A0B")) {
-                    break;
-                }
-            }
-
+    public boolean guessStart(String inputGuess) {
+        if (time <= 0) {
+            return true;
         }
+        time--;
+        String[] inputGuessArr = inputGuess.split(" ");
+        if (isInputValid(inputGuessArr)) {
+            int[] intArr = parseToIntegerArray(inputGuessArr);
+            if (guess(intArr, answer).equals("4A0B")) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private int[] parseToIntegerArray(String[] strArr) {
@@ -67,7 +68,7 @@ public class NumberGuess {
     }
 
 
-    public boolean isInputValid(String[] strArr ) {
+    public boolean isInputValid(String[] strArr) {
         return isLengthValid(strArr) && isIntegerNumber(strArr)
                 && isNotContainSameNumber(strArr) && isInputBetween0To9(strArr);
     }
