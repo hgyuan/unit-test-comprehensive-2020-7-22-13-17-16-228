@@ -47,9 +47,9 @@ public class NumberGuess {
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
         int[] intArr = new int[4];
+        String[] strArr = str.split(" ");
         for (; time > 0; time--) {
-            if (isInputValid(str)) {
-                String[] strArr = str.split(" ");
+            if (isInputValid(strArr)) {
                 for (int i = 0; i < 4; i++) {
                     intArr[i] = Integer.parseInt(strArr[i]);
                 }
@@ -62,8 +62,7 @@ public class NumberGuess {
     }
 
 
-    public boolean isInputValid(String str) {
-        String[] strArr = str.split(" ");
+    public boolean isInputValid(String[] strArr ) {
         return isLengthValid(strArr) && isIntegerNumber(strArr)
                 && isNotContainSameNumber(strArr) && isInputBetween0To9(strArr);
     }
