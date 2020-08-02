@@ -81,4 +81,14 @@ public class InputValidatorTest {
         assertFalse(result);
         assertEquals("Wrong Input,Input again",systemOut());
     }
+
+    @Test
+    void should_return_true_when_is_not_contain_same_number_given_123() {
+        String[] str = new String[]{"1", "2", "3"};
+        InputValidator inputValidator = new InputValidator();
+
+        boolean result = inputValidator.isNotContainSameNumber(str);
+
+        assertTrue(result);
+    }
 }
