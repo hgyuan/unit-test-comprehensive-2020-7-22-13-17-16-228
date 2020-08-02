@@ -45,4 +45,14 @@ public class InputValidatorTest {
 
         assertFalse(result);
     }
+
+    @Test
+    void should_return_true_when_is_integer_number_given_12() {
+        String[] str = new String[]{"0", "2"};
+        InputValidator inputValidator = new InputValidator();
+
+        boolean result = inputValidator.isIntegerNumber(str);
+
+        assertTrue(result);
+    }
 }
