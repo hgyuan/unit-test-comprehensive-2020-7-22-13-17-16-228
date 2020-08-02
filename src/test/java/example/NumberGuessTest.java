@@ -13,7 +13,7 @@ import static org.mockito.Mockito.when;
 
 public class NumberGuessTest {
 
-    private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
 
     private String systemOut() {

@@ -1,8 +1,6 @@
 package example;
 
-import java.util.Scanner;
-
-import static example.InputValid.*;
+import static example.InputValidator.*;
 
 public class NumberGuess {
 
@@ -21,19 +19,35 @@ public class NumberGuess {
     }
 
     public String guess(int[] guessInput, int[] answer) {
-        int CorrectPosition = 0;
-        int CorrectNumber = 0;
+        int correctPosition = countCorrentPositionNumber(guessInput,answer);
+        int correctNumber = countCorrectSameNumber(guessInput,answer);
+        return formatString(correctPosition, correctNumber);
+    }
+
+    private Integer countCorrentPositionNumber(int[] guessInput,int[] answer){
+        int correctPosition = 0;
         for (int index = 0; index < guessInput.length; index++) {
+            if (guessInput[index] == answer[index]) {
+                correctPosition++;
+            }
+        }
+        return correctPosition;
+    }
+
+    private Integer countCorrectSameNumber(int[] guessInput,int[] answer){
+        int correctNumber = 0;
+        for (int guessIndex = 0; guessIndex < guessInput.length; guessIndex++) {
             for (int answerIndex = 0; answerIndex < answer.length; answerIndex++) {
-                if (guessInput[index] == answer[index] && index == answerIndex) {
-                    CorrectPosition++;
-                }
-                if (guessInput[index] == answer[answerIndex]) {
-                    CorrectNumber++;
+                if (guessInput[guessIndex] == answer[answerIndex]) {
+                    correctNumber++;
                 }
             }
         }
-        return String.format("%sA%sB", CorrectPosition, CorrectNumber - CorrectPosition);
+        return correctNumber;
+    }
+
+    private String formatString(int correctPosition, int correctNumber) {
+        return String.format("%sA%sB", correctPosition, correctNumber - correctPosition);
     }
 
     public void guessStart(int[] guessInput, int[] answer) {
@@ -68,7 +82,8 @@ public class NumberGuess {
     }
 
     public boolean isInputValid(String[] strArr) {
-        return isLengthValid(strArr) && isIntegerNumber(strArr)
-                && isNotContainSameNumber(strArr) && isInputBetween0To9(strArr);
+        InputValidator inputValidator = new InputValidator();
+        return inputValidator.isLengthValid(strArr) && inputValidator.isIntegerNumber(strArr)
+                && inputValidator.isNotContainSameNumber(strArr) && inputValidator.isInputBetween0To9(strArr);
     }
 }
