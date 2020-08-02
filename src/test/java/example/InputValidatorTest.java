@@ -35,4 +35,14 @@ public class InputValidatorTest {
 
         assertTrue(result);
     }
+
+    @Test
+    void should_return_false_when_is_input_between_0_to_9_given_01_11() {
+        String[] str = new String[]{"0", "1", "11"};
+        InputValidator inputValidator = new InputValidator();
+
+        boolean result = inputValidator.isInputBetween0To9(str);
+
+        assertFalse(result);
+    }
 }
