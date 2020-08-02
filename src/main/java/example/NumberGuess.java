@@ -1,7 +1,5 @@
 package example;
 
-import static example.InputValidator.*;
-
 public class NumberGuess {
 
     private int[] answer;
@@ -58,19 +56,19 @@ public class NumberGuess {
         }
     }
 
-    public boolean guessStart(String inputGuess) {
-        if (time <= 0) {
-            return true;
-        }
-        time--;
-        String[] inputGuessArr = inputGuess.split(" ");
-        if (isInputValid(inputGuessArr)) {
-            int[] intArr = parseToIntegerArray(inputGuessArr);
-            if (guess(intArr, answer).equals("4A0B")) {
-                return true;
+    public void guessStart(String inputGuess) {
+        while (time > 0) {
+            time--;
+            String[] inputGuessArr = inputGuess.split(" ");
+            if (isInputValid(inputGuessArr)) {
+                int[] intArr = parseToIntegerArray(inputGuessArr);
+                if (guess(intArr, answer).equals("4A0B")) {
+                    System.out.print(guess(intArr, answer));
+                    return;
+                }
+                System.out.print(guess(intArr, answer));
             }
         }
-        return false;
     }
 
     private int[] parseToIntegerArray(String[] strArr) {

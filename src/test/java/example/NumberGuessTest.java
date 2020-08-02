@@ -7,7 +7,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.when;
 
 
@@ -183,13 +182,14 @@ public class NumberGuessTest {
     @Test
     void should_return_true_when_guessStart_given_input_1234_answer_1234() {
         //given
+        System.setOut(new PrintStream(outContent));
         AnswerBuilder answerBuilder = Mockito.mock(AnswerBuilder.class);
         when(answerBuilder.createAnswer()).thenReturn(new int[]{1, 2, 3, 4});
         NumberGuess numberGuess = new NumberGuess(answerBuilder);
         //when
-        boolean result = numberGuess.guessStart("1 2 3 4");
+        numberGuess.guessStart("1 2 3 4");
 
         //then
-        assertTrue(result);
+        assertEquals("4A0B", systemOut());
     }
 }
