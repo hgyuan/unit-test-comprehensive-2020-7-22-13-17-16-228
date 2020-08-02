@@ -91,4 +91,14 @@ public class InputValidatorTest {
 
         assertTrue(result);
     }
+
+    @Test
+    void should_return_false_when_is_not_contain_same_number_given_1123() {
+        String[] str = new String[]{"1", "1", "2", "3"};
+        InputValidator inputValidator = new InputValidator();
+
+        boolean result = inputValidator.isNotContainSameNumber(str);
+
+        assertFalse(result);
+    }
 }
