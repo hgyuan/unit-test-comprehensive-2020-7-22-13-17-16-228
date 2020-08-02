@@ -1,11 +1,26 @@
 package example;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class InputValidatorTest {
+
+    private final ByteArrayOutputStream byteArrayInputStream = new ByteArrayOutputStream();
+
+    private String systemOut(){
+        return byteArrayInputStream.toString();
+    }
+
+    @BeforeEach
+    public void setPrint(){
+        System.setOut(new PrintStream(byteArrayInputStream));
+    }
+
     @Test
     void should_return_true_when_is_length_valid_given_array_length_4() {
         String[] str = new String[4];
@@ -54,5 +69,16 @@ public class InputValidatorTest {
         boolean result = inputValidator.isIntegerNumber(str);
 
         assertTrue(result);
+    }
+
+    @Test
+    void should_return_false_when_is_integer_number_given_a2() {
+        String[] str = new String[]{"a", "2"};
+        InputValidator inputValidator = new InputValidator();
+
+        boolean result = inputValidator.isIntegerNumber(str);
+
+        assertFalse(result);
+        assertEquals("Wrong Input,Input again",systemOut());
     }
 }
