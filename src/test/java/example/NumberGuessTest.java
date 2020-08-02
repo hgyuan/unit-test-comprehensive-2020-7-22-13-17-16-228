@@ -83,7 +83,7 @@ public class NumberGuessTest {
     void should_return_0A4B_when_guess_given_number_6543_answer_3456() {
         //given
         NumberGuess numberGuess = new NumberGuess();
-        int[] guess = {6,5,4,3};
+        int[] guess = {6, 5, 4, 3};
         int[] answer = {3, 4, 5, 6};
 
         //when
@@ -116,10 +116,10 @@ public class NumberGuessTest {
         int[] answer = {1, 2, 3, 4};
 
         //when
-        numberGuess.guessStart(guess,answer);
+        numberGuess.guessStart(guess, answer);
 
         //then
-        assertEquals(5, numberGuess.getTime()-1);
+        assertEquals(5, numberGuess.getTime() - 1);
 
     }
 
@@ -135,7 +135,7 @@ public class NumberGuessTest {
 
 
         //then
-        assertEquals("Wrong Input,Input again",systemOut());
+        assertEquals("Wrong Input,Input again", systemOut());
     }
 
     @Test
@@ -149,7 +149,7 @@ public class NumberGuessTest {
         numberGuess.isInputValid(strs);
 
         //then
-        assertEquals("Wrong Input,Input again",systemOut());
+        assertEquals("Wrong Input,Input again", systemOut());
     }
 
     @Test
@@ -163,7 +163,7 @@ public class NumberGuessTest {
         numberGuess.isInputValid(strs);
 
         //then
-        assertEquals("Wrong Input,Input again",systemOut());
+        assertEquals("Wrong Input,Input again", systemOut());
     }
 
     @Test
@@ -177,7 +177,7 @@ public class NumberGuessTest {
         numberGuess.isInputValid(strs);
 
         //then
-        assertEquals("Wrong Input,Input again",systemOut());
+        assertEquals("Wrong Input,Input again", systemOut());
     }
 
     @Test

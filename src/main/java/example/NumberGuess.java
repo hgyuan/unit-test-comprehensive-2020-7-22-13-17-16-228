@@ -19,12 +19,12 @@ public class NumberGuess {
     }
 
     public String guess(int[] guessInput, int[] answer) {
-        int correctPosition = countCorrentPositionNumber(guessInput,answer);
-        int correctNumber = countCorrectSameNumber(guessInput,answer);
+        int correctPosition = countCorrentPositionNumber(guessInput, answer);
+        int correctNumber = countCorrectSameNumber(guessInput, answer);
         return formatString(correctPosition, correctNumber);
     }
 
-    private Integer countCorrentPositionNumber(int[] guessInput,int[] answer){
+    private Integer countCorrentPositionNumber(int[] guessInput, int[] answer) {
         int correctPosition = 0;
         for (int index = 0; index < guessInput.length; index++) {
             if (guessInput[index] == answer[index]) {
@@ -34,7 +34,7 @@ public class NumberGuess {
         return correctPosition;
     }
 
-    private Integer countCorrectSameNumber(int[] guessInput,int[] answer){
+    private Integer countCorrectSameNumber(int[] guessInput, int[] answer) {
         int correctNumber = 0;
         for (int guessIndex = 0; guessIndex < guessInput.length; guessIndex++) {
             for (int answerIndex = 0; answerIndex < answer.length; answerIndex++) {

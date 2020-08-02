@@ -15,6 +15,6 @@ public class FourRandomNumberAnswerBuilderTest {
         int[] arr = fourRandomNumberAnswerBuilder.createAnswer();
 
         //then
-        assertEquals(4,arr.length);
+        assertEquals(4, arr.length);
     }
 }
